@@ -24,7 +24,7 @@
 #masquerading allow for docker ingress and egress
 [root@localhost~]# firewall-cmd --zone=public --add-masquerade --permanent
 
-#specifically allow incoming trafic on port 80 and 443
+#specifically allow incoming traffic on port 80 and 443
 [root@localhost~]# firewall-cmd --zone=public --add-port=80/tcp
 [root@localhost~]# firewall-cmd --zone=public --add-port=443/tcp
 
