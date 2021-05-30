@@ -1,0 +1,67 @@
+# pulling centos image from docker hub
+
+
+[root@localhost~]# docker pull centos:latest
+
+
+#checking docker status
+
+
+[root@localhost~]# systemctl status docker
+[root@localhost~]# systemctl enable docker
+
+
+#creating a new container
+
+
+[root@localhost~]# docker run -t -i --name summer_task_2021 centos
+[root@3fdc6310345f /]# exit
+
+
+#setting up network for docker
+
+
+#masquerading allow for docker ingress and egress
+[root@localhost~]# firewall-cmd --zone=public --add-masquerade --permanent
+
+#specifically allow incoming trafic on port 80 and 443
+[root@localhost~]# firewall-cmd --zone=public --add-port=80/tcp
+[root@localhost~]# firewall-cmd --zone=public --add-port=443/tcp
+
+#reload firewall to apply permanent rules
+[root@localhost~]# firewall-cmd --reload
+
+#restart docker
+[root@localhost~]# systemctl restart docker
+
+
+#reopen and work on docker container
+
+
+[root@localhost~]# docker start summer_task_2021
+[root@localhost~]# docker attach summer_task_2021
+
+
+#install python and its libraries in docker container
+
+
+[root@3fdc6310345f /]# yum install python3
+[root@3fdc6310345f /]# pip install numpy
+[root@3fdc6310345f /]# pip install pandas
+[root@3fdc6310345f /]# pip install joblib
+[root@3fdc6310345f /]# pip install scikit-learn
+
+
+#copy ml program from host to container to files
+
+
+[root@localhost~]# docker cp marks 3fdc6310345f :/workspace/ml 
+
+
+#running the ml program in python inside the container
+
+[root@3fdc6310345f /]# python3 slr_marks1.py
+[root@3fdc6310345f /]# python3 slr_marks2.py
+
+
+
