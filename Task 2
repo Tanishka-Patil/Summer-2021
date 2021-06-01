@@ -1,0 +1,15 @@
+# Creating a dockerfile
+
+FROM centos:8
+RUN yum install firefox -y
+CMD firefox
+
+#Building an image
+
+docker build -t myfirefox:v1 
+
+#Creating a container with GUI enviornment
+
+docker run -it --name task2 --env="DISPLAY" --net=host myfirefox:v1
+
+
