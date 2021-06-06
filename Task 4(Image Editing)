@@ -1,0 +1,75 @@
+#Task 4.2 - Swapping part of images
+
+
+#Importing CV Library
+
+import cv2
+
+#Reading image into python
+
+image1=cv2.imread("ball.jpg")
+image2=cv2.imread("beach.jpg")
+
+#Creating a buffer to avoid contradiction
+
+buffer=cv2.imread("beach.jpg")
+
+#Show original image
+
+cv2.imshow("ball",image1)
+cv2.imshow("beach",image2)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#Highlighting the object in image 1
+
+edit1=cv2.rectangle(image1,(132,178),(260,290),[0,0,0],1)
+
+#Showing image with a rectangle around the cropping area
+
+cv2.imshow("object",edit1)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#Highlighting the object in image 2
+
+edit2=cv2.rectangle(image2,(680,520),(809,633),[0,0,0],1)
+
+#Showing where the object is going to be placed
+
+cv2.imshow("object_2",edit2)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#Assigining the pixels of image1 and image2 into a different array
+
+a=image1[178:291,132:261,:]
+b=buffer[520:633,680:809,:]
+
+#Showing the cropped image
+
+cv2.imshow("crop_a",a)
+cv2.imshow("crop_b",b)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#Assigining another variable to the image
+
+final1=image1
+final2=image2
+
+#Assigining the object array to the background array
+
+final1[178:291,132:261,:]=b
+final2[520:633,680:809,:]=a
+
+
+#Showing the final result
+
+cv2.imshow("final_1",final1)
+cv2.imshow("final_2",final2)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+
+
