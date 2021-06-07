@@ -1,4 +1,89 @@
+#Task 4.1 - Creating an image
+
+
+
+
+
+#Importing Libraries
+
+import numpy as np
+import cv2
+
+#Creating a blank image
+
+blank=np.zeros((500,300,3),np.uint8)
+
+#Showing the blank image
+
+cv2.imshow("blank_canvas",blank)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#Making the face of stickman
+
+face=cv2.circle(blank,(150,65),60,[255,255,255],5)
+
+#Showing the face
+
+cv2.imshow("stickman",face)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#Making the body of stickman
+
+body=cv2.line(face,(150,130),(150,400),[255,255,255],5)
+
+#Showing the body
+
+cv2.imshow("stickman",body)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#Making the hands of stickman
+
+hands=cv2.line(body,(50,150),(250,150),[255,255,255],5)
+
+#Showing the hands
+
+cv2.imshow("stickman",hands)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#Making the leg1 of stickman
+
+leg1=cv2.line(hands,(150,400),(100,500),[255,255,255],5)
+
+#Showing leg1
+
+cv2.imshow("stickman",leg1)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#Making the leg2 of stickman
+
+leg2=cv2.line(leg1,(150,400),(200,500),[255,255,255],5)
+
+#Showing leg2
+
+cv2.imshow("stickman",leg2)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#Saving the stickman image
+
+cv2.imwrite("stickman.jpg",leg2)
+
+
+
+
+
+
+
+
 #Task 4.2 - Swapping part of images
+
+
+
 
 
 #Importing CV Library
