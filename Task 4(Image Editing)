@@ -86,6 +86,8 @@ cv2.imwrite("stickman.jpg",leg2)
 
 
 
+
+
 #Importing CV Library
 
 import cv2
@@ -197,3 +199,34 @@ cv2.destroyAllWindows()
 #Reading image2
 
 b=cv2.imread("selena5.jpg")
+
+#Cropping image2
+
+edit2=b[50:640,235:535,:]
+
+#Showing cropped image2
+
+cv2.imshow("Edit_2",edit2)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#Adding edited image1 to the blank canvas
+
+collage[:,:675,:]=edit1
+
+#Showing the canvas with image1
+
+cv2.imshow("collage",collage)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#Adding edited image2 to the canvas
+
+collage[:,680:,:]=edit2
+
+#Showing the final collage image
+
+cv2.imshow("final",collage)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
