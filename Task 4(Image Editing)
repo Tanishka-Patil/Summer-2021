@@ -158,3 +158,42 @@ cv2.destroyAllWindows()
 
 
 
+
+
+
+
+
+#Task 4.3 - Collage images
+
+
+
+
+
+
+#Importing libraries
+
+import cv2
+import numpy as np
+
+
+#Creating a blank canvas
+
+collage=np.zeros((590,980,3),np.uint8)
+
+#Reading image1
+
+a=cv2.imread("blackpink2.jpg")
+
+#Cropping image1
+
+edit1=a[610:,:,:]
+
+#Showing cropped image1
+
+cv2.imshow("Edit_1",edit1)
+cv2.waitKey()
+cv2.destroyAllWindows()
+
+#Reading image2
+
+b=cv2.imread("selena5.jpg")
